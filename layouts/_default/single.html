@@ -1,0 +1,44 @@
+{{ define "main" -}}
+<div class="post" id="top">
+  <h1>{{ .Title }}</h1>
+
+  <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z0700"| safeHTML }}" class="post-infos">
+    {{ i18n "publish" }} {{ .Date.Format "02-01-2006" }}
+    {{ with .Params.categories }}
+      {{ $total := len . }}
+      {{ if gt $total 0 }}
+        {{ i18n "in" }}
+        {{ $total := sub $total 1 }}
+        {{ range $i, $cat := sort . }}
+        <a href="{{ "/categories/" | absLangURL }}{{ $cat | urlize }}">{{ $cat }}</a>
+        {{ if lt $i $total }}•{{ end }}
+      {{ end }}
+      {{ end }}
+    {{ end }}
+  </time>
+
+  {{ partial "meta.html" . }}
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+</div>
+
+{{ if .Params.comtodon }}
+<div class="comments">
+  <h3>{{ i18n "comments" }}</h3>
+  <div class="comtodon" data-domain="{{ .Site.Params.comtodon.domain }}" data-status="{{ .Params.comtodon }}"
+    {{ with .Site.Params.comtodon.moderator }}data-moderator="{{ . }}" {{ end }}></div>
+</div>
+<script src="/comtodon.min.js" defer></script>
+{{- end }}
+{{- end }}
+
+{{ define "note" -}}
+{{ if .Params.toc }}
+<nav class="toc">
+  <a href="#top">{{ .Title }}</a>
+  {{ .TableOfContents }}
+</nav>
+{{ end }}
+{{- end }}

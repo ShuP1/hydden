@@ -1,0 +1,14 @@
+name = "Hydden"
+license = "MIT"
+description = "An elegant open source and mobile first theme"
+tags = ["blog", "personal"]
+features = ["blog", "themes", "comtodon"]
+min_version = 0.43
+
+[author]
+    name = "shu"
+    homepage = "https://wut.wadza.fr"
+
+[original]
+    name = "spf13"
+    homepage = "http://spf13.com"

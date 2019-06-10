@@ -1,0 +1,37 @@
+<aside class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="{{ .Site.BaseURL }}">
+        <img src="{{ .Site.Params.logo }}" alt="Rainbow">
+        <h1>{{ .Site.Title }}</h1>
+      </a>
+      <p class="lead">
+      {{ with .Site.Params.description }} {{.}} {{ else }}An elegant open source and mobile first theme for <a href="http://hugo.spf13.com">hugo</a> made by <a href="http://twitter.com/mdo">@mdo</a>. Originally made for Jekyll.{{end}}
+      </p>
+    </div>
+
+    <nav class="sidebar-nav">
+      {{ if .IsTranslated }}
+      <ul class="translations">
+        {{ range .Translations }}
+        <li>
+          <a href="{{ .Permalink }}">{{ .Language.LanguageName }}: {{ .Title }}</a>
+        </li>
+        {{ end}}
+      </ul>
+      {{ end }}
+      <ul class="menu-main">
+        {{- $currentPage := . -}}
+        {{ range .Site.Menus.main -}}
+        <li>
+          <a href="{{ .URL | absLangURL }}">
+            {{ .Name }}</a>
+        </li>
+        {{- end }}
+      </ul>
+    </nav>
+
+    <p>{{ with .Site.Params.copyright }}{{.}}{{ else }}&copy; {{ now.Format "2006"}}. All rights reserved. {{end}}
+    <br /><a rel="me" href="{{ .Site.Params.author.link }}">{{ .Site.Params.author.name }}</a> – {{ now.Format "2006"}} – <a rel="me" href="{{ .Site.Params.blog.link }}">{{ .Site.Params.blog.name }}</a></p>
+  </div>
+</aside>

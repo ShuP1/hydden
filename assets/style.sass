@@ -1,0 +1,411 @@
+$color-head: #313131
+$color-text: #515151
+$color-link: #268bd2
+$color-grey: #9a9a9a
+$border-color: #e5e5e5
+
+$smaller: .95em
+
+/* Global */
+@font-face
+  font-family: "Bitstream Vera Sans"
+  src: url(vera.ttf)
+
+@font-face
+  font-family: "Bitstream Vera Sans Mono"
+  src: url(vera-mono.ttf)
+
+*
+  box-sizing: border-box
+
+html, body
+  margin: 0
+  padding: 0
+
+html
+  font-family: "Bitstream Vera Sans", "Verdana", "Geneva", sans-serif
+  font-size: 16px
+  line-height: 1.5
+
+body
+  color: $color-text
+
+a
+  color: $color-link
+  text-decoration: none
+  &:hover, &:focus
+    text-decoration: underline
+
+em
+  font-size: $smaller
+
+/* Headings */
+h1, h2, h3, h4, h5, h6
+  margin-bottom: .5rem
+  font-weight: bold
+  line-height: 1.25
+  color: $color-head
+  text-rendering: optimizeLegibility
+
+h1
+  font-size: 2rem
+
+h2
+  margin-top: 1rem
+  font-size: 1.5rem
+
+h3
+  margin-top: 1.5rem
+  font-size: 1.25rem
+
+h4, h5, h6
+  margin-top: 1rem
+  font-size: 1rem
+
+/* Body text */
+p
+  margin-top: 0
+  margin-bottom: 1rem
+
+strong
+  color: $color-head
+
+
+/* Lists */
+ul, ol, dl
+  margin-top: 0
+  margin-bottom: 1rem
+
+dt
+  font-weight: bold
+
+dd
+  margin-bottom: .5rem
+
+
+/* Misc */
+hr
+  position: relative
+  margin: 1.5rem 0
+  border: 0
+  border-top: 1px solid #eee
+  border-bottom: 1px solid #fff
+
+abbr
+  font-size: 85%
+  font-weight: bold
+  color: #555
+  text-transform: uppercase
+  &[title]
+    cursor: help
+    border-bottom: 1px dotted $border-color
+
+/* Code */
+code, pre
+  font-family: "Bitstream Vera Sans Mono", Menlo, Monaco, "Courier New", monospace
+
+code
+  padding: .25em .5em
+  font-size: 85%
+  color: #bf616a
+  background-color: #f9f9f9
+  border-radius: 3px
+
+pre
+  display: block
+  margin-top: 0
+  margin-bottom: 1rem
+  padding: 1rem
+  font-size: .8rem
+  line-height: 1.4
+  white-space: pre
+  white-space: pre-wrap
+  word-break: break-all
+  word-wrap: break-word
+  background-color: #f9f9f9
+
+pre code
+  padding: 0
+  font-size: 100%
+  color: inherit
+  background-color: transparent
+
+.highlight
+  margin-bottom: 1rem
+  border-radius: 4px
+  pre
+    margin-bottom: 0
+
+
+blockquote
+  padding: .5rem 1rem
+  margin: .8rem 0
+  color: #7a7a7a
+  border-left: .25rem solid $border-color
+  p:last-child
+  margin-bottom: 0
+  @media (min-width: 30em)
+    padding-right: 5rem
+    padding-left: 1.25rem
+
+img
+  display: block
+  margin: 0 0 1rem
+  border-radius: 5px
+  max-width: 100%
+
+/* Tables */
+table
+  margin-bottom: 1rem
+  width: 100%
+  border: 1px solid $border-color
+  border-collapse: collapse
+
+td, th
+  padding: .25rem .5rem
+  border: 1px solid $border-color
+
+tbody tr:nth-child(odd) td, tbody tr:nth-child(odd) th
+  background-color: #f9f9f9
+
+
+/* Custom type */
+.lead
+  font-size: 1.25rem
+  font-weight: 300
+
+/* Messages */
+.message
+  margin-bottom: 1rem
+  padding: 1rem
+  color: #717171
+  background-color: #f9f9f9
+
+
+/* Container */
+.container
+  max-width: 45rem
+  padding-left:  1rem
+  padding-right: 1rem
+  margin-left:  auto
+  margin-right: auto
+
+/* Posts and pages */
+.page, .post
+  margin-bottom: 4em
+
+/* Blog post or page title */
+.page-title, .post-title, .post-title a
+  color: #303030
+
+.page-title, .post-title
+  margin-top: 0
+
+.post-content
+  margin-top: .7rem
+
+/* Meta data line below post title */
+.post-infos
+  display: block
+  margin-bottom: -.4rem
+
+.post-infos, .post-tags
+  color: $color-grey
+
+.post-infos a, .post-tags a, .breadcrumbnav a
+  color: $color-text
+
+.meta, .post-tags, .breadcrumbnav, .breadcrumbnav li
+  display: inline
+  padding: 0
+
+.meta
+  font-size: 0.8em
+
+.post-tags a::before
+  content: "#"
+
+.breadcrumbnav li:not(:last-child):after
+  content: '➤'
+  color: $color-grey
+  margin: .2em
+
+/* Table of contents */
+// TODO: float
+.toc
+  font-size: $smaller
+  a
+    color: $color-grey
+  ul
+    padding-left: 1rem
+    margin-bottom: 0
+    list-style: none
+  nav>ul
+    padding: 0
+
+/* Comtodon */
+.comtodon
+  font-size: $smaller
+  .status
+    position: relative
+  .status-content, .reply-main
+    margin-bottom: .5em
+  .status-content
+    border-left: .25rem solid $border-color
+    padding-left: .5em
+    &.sensitive
+      content: 'Sensitive'
+  .replies
+    margin-left: 1em
+  p
+    margin: .1em
+  a
+    text-decoration: none
+    color: #777
+  .emoji
+    height: 1em
+    display: inline
+    margin: 0
+    border-radius: 5px
+    max-width: 100%
+  .author
+    display: grid
+    grid-template-columns: 3.3em auto
+    grid-template-rows: repeat(3, 1em)
+    grid-gap: .1em
+    .avatar
+      border-radius: 20%
+      grid-area: 1 / 1 / 4 / 1
+      height: 100%
+    .name
+      color: black
+      font-weight: bold
+    .acct:before
+      content: '@'
+  .date
+    float: right
+  .reply-main
+    display: inline-block
+    color: white
+    background-color: #777
+    border-radius: .5em
+    padding: .1em .3em
+  &:after
+    content: '✉'
+    margin-left: .5em
+  .reply
+    visibility: hidden
+    position: absolute
+    right: .1em
+    top: 2em
+  &:after
+    content: '✉'
+    visibility: visible
+    display: block
+    position: absolute
+    right: 0
+    bottom: 0
+    color: white
+    background-color: #777
+    border-radius: .5em
+    font-size: .8em
+    padding: .1em .3em
+
+/* Pagination */
+.pagination
+  a
+    color: $color-grey
+  .active a
+    color: $color-text
+  .page-item
+    margin: .2em
+    display: inline
+
+/* Sidebar */
+.sidebar
+  text-align: center
+  padding: 2rem 1rem
+  color: rgba(255,255,255,.3)
+  background-color: #202020
+  a
+    color: white
+  .sidebar-about
+    h1
+      color: white
+      margin-top: 0
+      font-size: 3rem
+    img
+      margin: auto
+      width: 25vw
+
+  .sidebar-nav
+    ul
+      padding-left: 0
+      list-style: none
+    li
+      display: block
+    a:hover, a:focus
+      text-decoration: underline
+    .active
+      font-weight: bold
+
+/* Container */
+.content
+  padding-top: 3rem
+  padding-bottom: 3rem
+
+/* Note */
+.note
+  display: none
+
+/* Mobile first */
+@media (min-width: 48em)
+  html
+    font-size: 16px
+  .sidebar
+    position: fixed // TODO: better height / scroll
+    top: 0
+    left: 0
+    bottom: 0
+    width: 18rem
+    text-align: left
+    .sidebar-about
+      img
+        width: auto
+  .sidebar-sticky
+    position: absolute
+    right:  1rem
+    bottom: 1rem
+    left:   1rem
+  .content
+    max-width: 45rem
+    margin-left: 20rem
+    margin-right: 2rem
+  .layout-reverse
+    .sidebar
+      left: auto
+      right: 0
+    .content
+      margin-left: 2rem
+      margin-right: 20rem
+
+@media (min-width: 58em)
+  html
+    font-size: 20px
+
+@media (min-width: 64em)
+  .content
+    margin-left: 22rem
+    margin-right: 4rem
+  .layout-reverse .content
+    margin-left: 4rem
+    margin-right: 22rem
+
+@media (min-width: 86em)
+  .note
+    display: inline-block
+    float: right
+    padding-top: 4rem
+    padding-right: 4rem
+  .layout-reverse .note
+    padding-right: 24rem
