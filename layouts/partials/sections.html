@@ -1,0 +1,14 @@
+{{ template "sectionsnav" . }}
+{{ define "sectionsnav" }}
+{{ $sec := where .Sections ".Params.unlisted" "!=" "true" }}
+{{ if gt (len $sec) 0 }}
+<ul>
+{{ range $sec }}
+<li>
+    <a href="{{ .Permalink }}">{{ .Title }}</a>
+    {{ template "sectionsnav" .  }}
+</li>
+{{ end }}
+</ul>
+{{ end }}
+{{ end }}
